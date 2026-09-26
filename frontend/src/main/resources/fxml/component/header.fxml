@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+
+<HBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.github.jimtrung.theater.view.UserHeaderController"
+      stylesheets="@/styles/styles.css"
+      spacing="20" alignment="CENTER_LEFT"
+      styleClass="header-bar">
+  <padding>
+    <Insets top="12" right="20" bottom="12" left="20"/>
+  </padding>
+
+  <ImageView fitHeight="40" fitWidth="100" preserveRatio="true">
+    <image>
+      <Image url="http://localhost:8080/uploads/logos/logo.png"/>
+    </image>
+  </ImageView>
+
+  <Region HBox.hgrow="ALWAYS"/>
+
+  <HBox spacing="8" styleClass="nav-buttons">
+    <Button text="Trang Chủ" styleClass="nav-button" onAction="#handleHomeButton"/>
+    <Button text="Tin Tức" styleClass="nav-button" onAction="#handleNewsButton"/>
+    <Button text="Khuyến Mãi" styleClass="nav-button" onAction="#handlePromotionButton"/>
+    <Button text="Giá Vé" styleClass="nav-button" onAction="#handlePriceButton"/>
+    <Button text="Giới thiệu" styleClass="nav-button" onAction="#handleAboutButton"/>
+  </HBox>
+
+  <Region HBox.hgrow="ALWAYS"/>
+
+  <HBox spacing="10" fx:id="authButtons">
+    <Button text="Đăng Ký" styleClass="nav-button" onAction="#handleSignUpButton"/>
+    <Button text="Đăng nhập" styleClass="nav-button" onAction="#handleSignInButton"/>
+  </HBox>
+
+  <HBox spacing="10" fx:id="userInfo" visible="false" managed="false" alignment="CENTER">
+    <Label fx:id="usernameLabel" text="Username"/>
+    <Button fx:id="bookedTicketButton" text="Vé đã đặt" styleClass="nav-button" onAction="#handleBookedTicketButton"/>
+    <Button fx:id="profileButton" text="Hồ Sơ" styleClass="nav-button" onAction="#handleProfileButton"/>
+    <Button fx:id="logoutButton" text="Đăng Xuất" styleClass="nav-button" onAction="#handleLogoutButton"/>
+  </HBox>
+
+</HBox>

@@ -1,0 +1,63 @@
+package com.github.jimtrung.theater.model;
+
+import jakarta.persistence.*;
+import java.time.OffsetDateTime;
+import java.util.UUID;
+
+@Entity
+@Table(name = "tickets")
+public class Ticket {
+  @Id
+  @GeneratedValue(strategy = GenerationType.UUID)
+  private UUID id;
+  
+  @Column(name = "user_id")
+  private UUID userId;
+  
+  @Column(name = "showtime_id")
+  private UUID showtimeId;
+  
+  @Column(name = "seat_id")
+  private UUID seatId;
+  
+  private Integer price;
+  private OffsetDateTime createdAt;
+  private OffsetDateTime updatedAt;
+  private String status;
+
+  public Ticket() {}
+  public Ticket(UUID id, UUID userId, UUID showtimeId, UUID seatId, Integer price, OffsetDateTime createdAt, OffsetDateTime updatedAt, String status) {
+    this.id = id;
+    this.userId = userId;
+    this.showtimeId = showtimeId;
+    this.seatId = seatId;
+    this.price = price;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
+    this.status = status;
+  }
+
+  public UUID getId() { return id; }
+  public void setId(UUID id) { this.id = id; }
+
+  public UUID getUserId() { return userId; }
+  public void setUserId(UUID userId) { this.userId = userId; }
+
+  public UUID getShowtimeId() { return showtimeId; }
+  public void setShowtimeId(UUID showtimeId) { this.showtimeId = showtimeId; }
+
+  public UUID getSeatId() { return seatId; }
+  public void setSeatId(UUID seatId) { this.seatId = seatId; }
+
+  public Integer getPrice() { return price; }
+  public void setPrice(Integer price) { this.price = price; }
+
+  public OffsetDateTime getCreatedAt() { return createdAt; }
+  public void setCreatedAt(OffsetDateTime createdAt) { this.createdAt = createdAt; }
+
+  public OffsetDateTime getUpdatedAt() { return updatedAt; }
+  public void setUpdatedAt(OffsetDateTime updatedAt) { this.updatedAt = updatedAt; }
+
+  public String getStatus() { return status; }
+  public void setStatus(String status) { this.status = status; }
+}

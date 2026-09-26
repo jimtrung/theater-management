@@ -1,0 +1,78 @@
+package com.github.jimtrung.theater.model;
+
+import jakarta.persistence.*;
+import java.time.OffsetDateTime;
+import java.util.List;
+import java.util.UUID;
+import io.hypersistence.utils.hibernate.type.array.ListArrayType;
+import org.hibernate.annotations.ColumnTransformer;
+import org.hibernate.annotations.Type;
+
+@Entity
+@Table(name = "movies")
+public class Movie {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+    
+    private String name;
+    private String description;
+    private String director;
+    
+    @Type(ListArrayType.class)
+    @Column(name = "actors", columnDefinition = "text[]")
+    private List<String> actors;
+    
+    @Type(ListArrayType.class)
+    @Column(name = "genres", columnDefinition = "movie_genre[]")
+    @ColumnTransformer(write = "?::movie_genre[]")
+    private List<String> genres;
+    
+    private OffsetDateTime premiere;
+    private Integer duration;
+    
+    @Enumerated(EnumType.STRING)
+    private MovieLanguage language; 
+    
+    private Integer rated;
+    private OffsetDateTime createdAt;
+    private OffsetDateTime updatedAt;
+    
+    public Movie() {}
+
+    public UUID getId() { return id; }
+    public void setId(UUID id) { this.id = id; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+
+    public String getDirector() { return director; }
+    public void setDirector(String director) { this.director = director; }
+
+    public List<String> getActors() { return actors; }
+    public void setActors(List<String> actors) { this.actors = actors; }
+
+    public List<String> getGenres() { return genres; }
+    public void setGenres(List<String> genres) { this.genres = genres; }
+
+    public OffsetDateTime getPremiere() { return premiere; }
+    public void setPremiere(OffsetDateTime premiere) { this.premiere = premiere; }
+
+    public Integer getDuration() { return duration; }
+    public void setDuration(Integer duration) { this.duration = duration; }
+
+    public MovieLanguage getLanguage() { return language; }
+    public void setLanguage(MovieLanguage language) { this.language = language; }
+
+    public Integer getRated() { return rated; }
+    public void setRated(Integer rated) { this.rated = rated; }
+
+    public OffsetDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(OffsetDateTime createdAt) { this.createdAt = createdAt; }
+
+    public OffsetDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(OffsetDateTime updatedAt) { this.updatedAt = updatedAt; }
+}

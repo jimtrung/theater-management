@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.github.jimtrung.theater.view.HomePageUserController"
+            stylesheets="@/styles/styles.css">
+
+  <top>
+    <fx:include fx:id="userHeader" source="../component/header.fxml"/>
+  </top>
+
+  <center>
+    <ScrollPane fitToWidth="true">
+      <VBox spacing="0">
+
+        <StackPane fx:id="homeBannerP" prefHeight="400" maxHeight="400" minHeight="400">
+          <clip>
+            <Rectangle width="${homeBannerP.width}" height="400"/>
+          </clip>
+          <ImageView fitWidth="${homeBannerP.width}" preserveRatio="true">
+            <Image url="@/images/zootopia.jpg"/>
+          </ImageView>
+          <Region style="-fx-background-color: rgba(0, 0, 0, 0.25);"/>
+          <VBox alignment="CENTER" spacing="20">
+            <Label text="TRẢI NGHIỆM ĐIỆN ẢNH ĐỈNH CAO" styleClass="banner-title"/>
+            <Button text="MUA VÉ NGAY" styleClass="button-primary,banner-button"/>
+          </VBox>
+        </StackPane>
+
+        <VBox spacing="30" alignment="TOP_CENTER">
+          <padding>
+            <Insets top="40" right="40" bottom="40" left="40"/>
+          </padding>
+
+          <HBox alignment="CENTER">
+            <Label text="PHIM ĐANG CHIẾU" styleClass="section-title"/>
+          </HBox>
+
+          <FlowPane fx:id="movieList" hgap="20" vgap="20" alignment="CENTER" maxWidth="1600"/>
+        </VBox>
+      </VBox>
+    </ScrollPane>
+  </center>
+
+</BorderPane>

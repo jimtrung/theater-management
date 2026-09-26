@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.github.jimtrung.theater.view.PayPageController"
+            stylesheets="@/styles/styles.css">
+
+  <center>
+    <ScrollPane fitToWidth="true" styleClass="transparent-scroll-pane">
+    <StackPane>
+      <VBox spacing="10" alignment="CENTER">
+        <Label text="Thanh Toán Vé" styleClass="title"/>
+
+        <GridPane hgap="10" vgap="10" maxWidth="800" styleClass="card">
+          <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+          <columnConstraints>
+        <ColumnConstraints percentWidth="60"/>
+        <ColumnConstraints percentWidth="40"/>
+      </columnConstraints>
+
+      <GridPane GridPane.columnIndex="0" hgap="10" vgap="12">
+        <rowConstraints>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+        </rowConstraints>
+
+        <HBox spacing="10" GridPane.rowIndex="0">
+          <Label text="Tên phim:" styleClass="form-label"/>
+          <Label fx:id="ticketMovieName"/>
+        </HBox>
+
+        <HBox spacing="10" GridPane.rowIndex="1">
+          <Label text="Phòng:" styleClass="form-label"/>
+          <Label fx:id="ticketAuditoriumName"/>
+        </HBox>
+
+        <HBox spacing="10" GridPane.rowIndex="2">
+          <Label text="Giờ bắt đầu:" styleClass="form-label"/>
+          <Label fx:id="ticketStartTime"/>
+        </HBox>
+
+        <HBox spacing="10" GridPane.rowIndex="3">
+          <Label text="Giờ kết thúc:" styleClass="form-label"/>
+          <Label fx:id="ticketEndTime"/>
+        </HBox>
+
+        <HBox spacing="10" GridPane.rowIndex="4">
+          <Label text="Ngày chiếu:" styleClass="form-label"/>
+          <Label fx:id="ticketShowDate"/>
+        </HBox>
+
+        <HBox spacing="10" GridPane.rowIndex="5">
+          <Label text="Số ghế:" styleClass="form-label"/>
+          <Label fx:id="ticketSeatName"/>
+        </HBox>
+
+        <HBox spacing="10" GridPane.rowIndex="6">
+          <Label text="Giá vé:" styleClass="form-label"/>
+          <Label fx:id="ticketPrice"/>
+        </HBox>
+      </GridPane>
+
+      <GridPane GridPane.columnIndex="1" vgap="20">
+        <rowConstraints>
+          <RowConstraints vgrow="ALWAYS"/>
+          <RowConstraints/>
+        </rowConstraints>
+
+        <BorderPane GridPane.rowIndex="0" prefWidth="250" prefHeight="250">
+          <center>
+            <ImageView fx:id="ticketQRCode" fitWidth="250" fitHeight="250" preserveRatio="true" pickOnBounds="true"> 
+              <Image url="@/images/QR.jpg"/>
+            </ImageView>
+          </center>
+        </BorderPane>
+
+        <HBox spacing="10" GridPane.rowIndex="1" alignment="CENTER_RIGHT">
+            <Button text="Xác nhận thanh toán" prefWidth="200" prefHeight="40" styleClass="button-primary" onAction="#confirmPayment"/>
+            <Button fx:id="back" text="Trở lại" prefWidth="120" prefHeight="40" styleClass="button-secondary" onAction="#handleBackButton"/>
+        </HBox>
+      </GridPane>
+
+        </GridPane>
+      </VBox>
+    </StackPane>
+    </ScrollPane>
+  </center>
+
+</BorderPane>

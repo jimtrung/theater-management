@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.github.jimtrung.theater.view.HomePageManagerController"
+            stylesheets="@/styles/styles.css">
+
+  <children>
+    <BorderPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+
+      <top>
+        <HBox spacing="10" styleClass="header-bar" alignment="CENTER_LEFT">
+          <padding>
+            <Insets top="12" right="20" bottom="12" left="20"/>
+          </padding>
+          <children>
+            <Label text="Admin Dashboard" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18px;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="movieButton" text="Phim" styleClass="nav-button" onAction="#handleMovieButton"/>
+            <Button fx:id="auditoriumButton" text="Phòng Chiếu" styleClass="nav-button" onAction="#handleAuditoriumButton"/>
+            <Button fx:id="showtimeButton" text="Lịch Chiếu" styleClass="nav-button" onAction="#handleShowtimeButton"/>
+            <Button fx:id="profileButton" text="Hồ Sơ" styleClass="nav-button" onAction="#handleProfileButton"/>
+            <Button fx:id="logOutButton" text="Đăng Xuất" styleClass="nav-button" onAction="#handleLogOutButton"/>
+          </children>
+        </HBox>
+      </top>
+
+      <center>
+        <ScrollPane fitToWidth="true" styleClass="transparent-scroll-pane">
+        <GridPane hgap="20" vgap="20">
+          <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+          </padding>
+
+          <columnConstraints>
+            <ColumnConstraints percentWidth="60"/>
+            <ColumnConstraints percentWidth="40"/>
+          </columnConstraints>
+
+          <!-- LEFT SIDE -->
+          <children>
+            <VBox spacing="15" GridPane.columnIndex="0">
+              <children>
+
+                <BorderPane prefHeight="400">
+                  <center>
+                      <ImageView fx:id="cinemaImage" fitHeight="400" preserveRatio="true" pickOnBounds="true">
+                          <Image url="@/images/hehehe.jpg"/>
+                      </ImageView>
+                  </center>
+                </BorderPane>
+
+                  <Label text="Rạp Chiếu Phim Quốc Gia"
+                         style="-fx-font-size: 24px;" />
+
+                  <Label wrapText="true" style="-fx-font-size: 16px;"
+                       text="Rạp Chiếu Phim Quốc Gia là trung tâm điện ảnh lớn nhất tại Việt Nam, nơi trình chiếu các bộ phim quốc tế và trong nước chất lượng cao. Với trang thiết bị hiện đại, âm thanh và hình ảnh sống động, rạp mang đến trải nghiệm điện ảnh đỉnh cao cho khán giả mọi lứa tuổi."/>
+              </children>
+            </VBox>
+
+            <VBox spacing="5" GridPane.columnIndex="1" styleClass="card">
+              <children>
+                <Label text="Thống kê hệ thống" styleClass="heading"/>
+
+                <Label fx:id="userCountText" text="- Người dùng:" styleClass="form-label"/>
+                <Label fx:id="movieCountText" text="- Phim:" styleClass="form-label"/>
+                <Label fx:id="auditoriumCountText" text="- Phòng:" styleClass="form-label"/>
+                <Label fx:id="showtimeCountText" text="- Suất chiếu:" styleClass="form-label"/>
+                <Label fx:id="paidTicketCountText" text="- Vé đã thanh toán:" styleClass="form-label"/>
+                <Label fx:id="pendingTicketCountText" text="- Vé chưa thanh toán:" styleClass="form-label"/>
+                <Label fx:id="revenueText" text="- Tổng doanh thu từ bán vé:" styleClass="form-label"/>
+
+                  <Pane fx:id="chartGrid" prefWidth="500" prefHeight="385">
+                      <VBox.margin>
+                          <Insets top="15"/>
+                      </VBox.margin>
+                  </Pane>
+
+              </children>
+            </VBox>
+          </children>
+        </GridPane>
+        </ScrollPane>
+      </center>
+    </BorderPane>
+  </children>
+</AnchorPane>
