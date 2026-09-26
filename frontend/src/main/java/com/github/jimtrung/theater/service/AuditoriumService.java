@@ -93,7 +93,7 @@ public class AuditoriumService {
                 .DELETE()
                 .build();
 
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> _ = client.send(request, HttpResponse.BodyHandlers.ofString());
     }
 
     public void deleteAllAuditoriums() throws Exception {
